@@ -5,15 +5,18 @@
 ## A Makefile to compile solver
 ##
 
-NAME	=
+NAME	=	solver
 
-SRC	=
+SRC	=	main.c\
+		src/get_maze.c\
+		src/get_maze_as_int_matrix.c\
+		src/error_detection.c
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	+=	-Wall -Wextra -Iinclude
+CFLAGS	+=	-Wall -Wextra -I./
 
-NAME_TESTS	=	tests_
+NAME_TESTS	=	tests_solver
 
 SRC_TESTS	=
 
