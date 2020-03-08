@@ -44,6 +44,8 @@ int is_badly_formatted_line(char *str);
 int solve_maze(maze_t maze);
 int is_start_or_end_blocked(maze_t maze);
 void attribute_distance(int *cell, int *current_distance);
+void go_back(maze_t maze, coord_t *pos, int current_distance, int *go_on);
+void save_path(maze_t *maze, coord_t pos);
 
 // coordinates.c
 int go_to_cell(maze_t maze, coord_t *pos, int wanted_nb);
@@ -54,5 +56,6 @@ void display_no_solution(void);
 void display_solution(maze_t maze);
 void display_cell(int cell);
 void my_put_str(char *str, int file_descr);
+void debug_display_array(maze_t maze);
 
 #endif // DEF_SOLVER

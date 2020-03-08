@@ -21,34 +21,11 @@ int solve_maze(maze_t maze)
     while (go_on) {
         attribute_distance(&(maze.array[pos.x][pos.y]), &current_distance);
         if (pos.x == maze.nb_lines - 1 && pos.y == maze.nb_cols - 1) {
-            //save_path(maze, pos); // TODO
-            //display_solution(maze); // TODO
+            save_path(&maze, pos);
+            display_solution(maze);
             go_on = 0;
-        } else if (!go_to_cell(maze, &pos, -2)) {
-            if (maze.array[pos.x][pos.y] == 0) {
-                display_no_solution();
-                go_on = 0;
-            } else
-                go_to_cell(maze, &pos, current_distance - 1);
-
-        }
-
-        /*for (int i = 0; i < maze.nb_lines; i++) {
-            for (int j = 0; j < maze.nb_cols; j++) {
-                printf(" ");
-                if (maze.array[i][j] < 10)
-                    printf(" ");
-                if (maze.array[i][j] == -2)
-                    printf("*");
-                else if (maze.array[i][j] == -1)
-                    printf("X");
-                else
-                    printf("%i", maze.array[i][j]);
-                printf(" ");
-            }
-            printf("\n");
-        }
-        printf("\n");*/
+        } else if (!go_to_cell(maze, &pos, -2))
+            go_back(maze, &pos, current_distance, &go_on);
     }
     return (0);
 }
@@ -67,4 +44,24 @@ void attribute_distance(int *cell, int *current_distance)
     if (*cell == -2)
         *cell = *current_distance + 1;
     *current_distance = *cell;
+}
+
+void go_back(maze_t maze, coord_t *pos, int current_distance, int *go_on)
+{
+    if (pos->x == 0 && pos->y == 0) {
+        display_no_solution();
+        *go_on = 0;
+    } else
+        go_to_cell(maze, pos, current_distance - 1);
+}
+
+void save_path(maze_t *maze, coord_t pos)
+{
+    int current_distance = 0;
+
+    while (pos.x != 0 || pos.y != 0) {
+        current_distance = maze->array[pos.x][pos.y];
+        maze->array[pos.x][pos.y] = -3;
+        go_to_cell(*maze, &pos, current_distance - 1);
+    }
 }

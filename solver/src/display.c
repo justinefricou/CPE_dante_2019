@@ -17,7 +17,8 @@ void display_solution(maze_t maze)
     for (int i = 0; i < maze.nb_lines; i++) {
         for (int j = 0; j < maze.nb_cols; j++)
             display_cell(maze.array[i][j]);
-        write(1, "\n", 1);
+        if (i != maze.nb_lines - 1)
+            write(1, "\n", 1);
     }
 }
 
@@ -37,4 +38,24 @@ void my_put_str(char *str, int file_descr)
 
     for ( ; str[length_str] != 0; length_str++);
     write(file_descr, str, length_str);
+}
+
+void debug_display_array(maze_t maze)
+{
+    for (int i = 0; i < maze.nb_lines; i++) {
+        for (int j = 0; j < maze.nb_cols; j++) {
+            printf(" ");
+            if (maze.array[i][j] < 10)
+                printf(" ");
+            if (maze.array[i][j] == -2)
+                printf("*");
+            else if (maze.array[i][j] == -1)
+                printf("X");
+            else
+                printf("%i", maze.array[i][j]);
+            printf(" ");
+        }
+        printf("\n");
+    }
+    printf("\n");
 }
