@@ -14,7 +14,21 @@ void display_no_solution(void)
 
 void display_solution(maze_t maze)
 {
-    // TODO
+    for (int i = 0; i < maze.nb_lines; i++) {
+        for (int j = 0; j < maze.nb_cols; j++)
+            display_cell(maze.array[i][j]);
+        write(1, "\n", 1);
+    }
+}
+
+void display_cell(int cell)
+{
+    if (cell == -3)
+        write(1, "o", 1);
+    else if (cell == -1)
+        write(1, "X", 1);
+    else
+        write(1, "*", 1);
 }
 
 void my_put_str(char *str, int file_descr)

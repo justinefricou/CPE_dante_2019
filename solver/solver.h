@@ -42,6 +42,7 @@ int is_start_or_end_blocked(maze_t maze);
 // display.c
 void display_no_solution(void);
 void display_solution(maze_t maze);
+void display_cell(int cell);
 void my_put_str(char *str, int file_descr);
 
 #endif // DEF_SOLVER
