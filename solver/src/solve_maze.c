@@ -64,7 +64,6 @@ int is_start_or_end_blocked(maze_t maze)
 
 void attribute_distance(int *cell, int *current_distance)
 {
-printf("current distance = %i\n", *current_distance);
     if (*cell == -2)
         *cell = *current_distance + 1;
     *current_distance = *cell;
