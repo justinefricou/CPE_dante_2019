@@ -10,7 +10,9 @@ NAME	=	solver
 SRC	=	main.c\
 		src/get_maze.c\
 		src/get_maze_as_int_matrix.c\
-		src/error_detection.c
+		src/error_detection.c\
+		src/solve_maze.c\
+		src/display.c
 
 OBJ	=	$(SRC:.c=.o)
 

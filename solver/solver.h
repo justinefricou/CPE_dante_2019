@@ -35,4 +35,13 @@ void free_matrix(int **matrix, int last_line);
 // error_detection.c
 int is_badly_formatted_line(char *str);
 
+// solve_maze.c
+int solve_maze(maze_t maze);
+int is_start_or_end_blocked(maze_t maze);
+
+// display.c
+void display_no_solution(void);
+void display_solution(maze_t maze);
+void my_put_str(char *str, int file_descr);
+
 #endif // DEF_SOLVER

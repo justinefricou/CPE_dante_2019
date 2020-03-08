@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** main.c
 ** File description:
-** solver : main function
+** Main function
 */
 
 #include "solver.h"
@@ -15,7 +15,15 @@ int main(int argc, char **argv)
         return (84);
     if (get_maze(&maze, argv[1]) == 84)
         return (84);
-    //solve_maze(maze); // TODO
+
+
+// for (int i = 0; i < maze.nb_lines; i++) {
+//     for (int j = 0; j < maze.nb_cols; j++)
+//         printf("%i", maze.array[i][j]);
+//     printf("\n");
+// }
+
+    solve_maze(maze);
     free_matrix(maze.array, maze.nb_lines - 1);
     return (0);
 }
