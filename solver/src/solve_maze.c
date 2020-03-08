@@ -32,10 +32,8 @@ int solve_maze(maze_t maze)
                 go_to_cell(maze, &pos, current_distance - 1);
 
         }
-        // TODO : if while going back, we don't find any unvisited cell
-        // stop and display "no solution found"
 
-        for (int i = 0; i < maze.nb_lines; i++) {
+        /*for (int i = 0; i < maze.nb_lines; i++) {
             for (int j = 0; j < maze.nb_cols; j++) {
                 printf(" ");
                 if (maze.array[i][j] < 10)
@@ -50,7 +48,7 @@ int solve_maze(maze_t maze)
             }
             printf("\n");
         }
-        printf("\n");
+        printf("\n");*/
     }
     return (0);
 }
