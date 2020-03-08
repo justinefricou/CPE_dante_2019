@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** error_detection.c
 ** File description:
-** Solver : detects if a there are formatting errors in a line
+** Detects if a there are formatting errors in a line
 */
 
 #include "solver.h"

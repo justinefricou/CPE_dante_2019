@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** get_maze_as_int_matrix.c
 ** File description:
-** solver : gets the maze as an int matrix from a string
+** Gets the maze as an int matrix from a string
 */
 
 #include "solver.h"
@@ -53,7 +53,7 @@ int line_to_int_array(int **array, char *str, int length)
     if (*array == NULL)
         return (84);
     for (int i = 0; i < length; i++)
-        (*array)[i] = (str[i] == 'X');
+        (*array)[i] = (str[i] == 'X') - 2;
     return (0);
 }
 

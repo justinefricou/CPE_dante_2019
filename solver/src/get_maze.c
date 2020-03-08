@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** get_maze.c
 ** File description:
-** solver : gets the maze from the file passed as parameter
+** Gets the maze from the file passed as parameter
 */
 
 #include "solver.h"
