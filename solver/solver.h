@@ -56,6 +56,5 @@ void display_no_solution(void);
 void display_solution(maze_t maze);
 void display_cell(int cell);
 void my_put_str(char *str, int file_descr);
-void debug_display_array(maze_t maze);
 
 #endif // DEF_SOLVER
