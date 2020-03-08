@@ -12,6 +12,7 @@ SRC	=	main.c\
 		src/get_maze_as_int_matrix.c\
 		src/error_detection.c\
 		src/solve_maze.c\
+		src/coordinates.c\
 		src/display.c
 
 OBJ	=	$(SRC:.c=.o)

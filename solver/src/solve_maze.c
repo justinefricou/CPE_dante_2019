@@ -9,9 +9,8 @@
 
 int solve_maze(maze_t maze)
 {
-    int line = 0;
-    int col = 0;
-    int last_distance = 0;
+    coord_t pos = {0, 0};
+    int current_distance = 0;
     int go_on = 1;
 
     if (is_start_or_end_blocked(maze)) {
@@ -20,15 +19,38 @@ int solve_maze(maze_t maze)
     }
     maze.array[0][0] = 0;
     while (go_on) {
-        attribute_distance(&(maze[line][col]), last_distance);
-        if (line == maze.nb_lines - 1 && col == maze.nb_cols - 1) {
-            save_path(maze, col, line); // TODO
-            display_solution(maze); // TODO
+        attribute_distance(&(maze.array[pos.x][pos.y]), &current_distance);
+        if (pos.x == maze.nb_lines - 1 && pos.y == maze.nb_cols - 1) {
+            //save_path(maze, pos); // TODO
+            //display_solution(maze); // TODO
             go_on = 0;
-        } else if (!get_unvisited_cell_coords(maze, &line, &col))
-            get_previous_cell(maze, &line, &col); // TODO
+        } else if (!go_to_cell(maze, &pos, -2)) {
+            if (maze.array[pos.x][pos.y] == 0) {
+                display_no_solution();
+                go_on = 0;
+            } else
+                go_to_cell(maze, &pos, current_distance - 1);
+
+        }
         // TODO : if while going back, we don't find any unvisited cell
         // stop and display "no solution found"
+
+        for (int i = 0; i < maze.nb_lines; i++) {
+            for (int j = 0; j < maze.nb_cols; j++) {
+                printf(" ");
+                if (maze.array[i][j] < 10)
+                    printf(" ");
+                if (maze.array[i][j] == -2)
+                    printf("*");
+                else if (maze.array[i][j] == -1)
+                    printf("X");
+                else
+                    printf("%i", maze.array[i][j]);
+                printf(" ");
+            }
+            printf("\n");
+        }
+        printf("\n");
     }
     return (0);
 }
@@ -42,31 +64,10 @@ int is_start_or_end_blocked(maze_t maze)
     return (0);
 }
 
-void attribute_distance(int *cell, int last_distance)
+void attribute_distance(int *cell, int *current_distance)
 {
-    if (*cell == -1)
-        *cell = last_distance + 1;
-}
-
-int get_unvisited_cell_coords(maze_t maze, int *line, int *col)
-{
-    int go_on = 1;
-
-    for (int i = -1; i <= 1 && go_on; i++) {
-        for (int j = -1; j <= 1 && go_on; j++)
-            go_on = !update_coords(maze.array[*line + i][*col + j], line, col);
-    }
-    if (go_on)
-        return (0);
-    return (1);
-}
-
-int update_coords(int cell, int *line, int *col)
-{
-    if (cell == -1) {
-        (*line) += i;
-        (*col) += j;
-        return (1);
-    }
-    return (0);
+printf("current distance = %i\n", *current_distance);
+    if (*cell == -2)
+        *cell = *current_distance + 1;
+    *current_distance = *cell;
 }
