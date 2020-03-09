@@ -5,15 +5,16 @@
 ## A Makefile to compile generator
 ##
 
-NAME	=
+NAME	=	generator
 
-SRC	=
+SRC	=	main.c\
+		src/error_detection.c
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	+=	-Wall -Wextra -Iinclude
+CFLAGS	+=	-Wall -Wextra -I./
 
-NAME_TESTS	=	tests_
+NAME_TESTS	=	tests_generator
 
 SRC_TESTS	=
 
