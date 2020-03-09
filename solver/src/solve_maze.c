@@ -64,4 +64,5 @@ void save_path(maze_t *maze, coord_t pos)
         maze->array[pos.x][pos.y] = -3;
         go_to_cell(*maze, &pos, current_distance - 1);
     }
+    maze->array[0][0] = -3;
 }
