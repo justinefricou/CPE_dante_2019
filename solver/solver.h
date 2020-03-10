@@ -13,6 +13,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct maze {
     int **array;
@@ -55,6 +56,5 @@ int update_coords(maze_t maze, coord_t *pos, coord_t shift, int wanted);
 void display_no_solution(void);
 void display_solution(maze_t maze);
 void display_cell(int cell);
-void my_put_str(char *str, int file_descr);
 
 #endif // DEF_SOLVER
