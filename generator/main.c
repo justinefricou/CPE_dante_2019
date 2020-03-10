@@ -16,8 +16,9 @@ int main(int argc, char **argv)
         return (84);
     if (get_dimensions(&(argv[1]), &dimensions) == 84)
         return (84);
-    if (generate_maze(&maze, dimensions, (argc == 4)) == 84)
+    if (get_maze(&maze, dimensions, (argc == 4)) == 84)
         return (84);
     printf("%s", maze);
+    free(maze);
     return (0);
 }

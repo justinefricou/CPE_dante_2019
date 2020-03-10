@@ -10,7 +10,8 @@ NAME	=	generator
 SRC	=	main.c\
 		src/error_detection.c\
 		src/get_dimensions.c\
-		src/maze_generation.c
+		src/get_maze.c\
+		src/get_blank_matrix.c
 
 OBJ	=	$(SRC:.c=.o)
 
