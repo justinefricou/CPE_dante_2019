@@ -54,7 +54,8 @@ int update_coords(maze_t maze, coord_t *pos, coord_t shift, int wanted);
 
 // display.c
 void display_no_solution(void);
-void display_solution(maze_t maze);
-void display_cell(int cell);
+int display_solution(maze_t maze);
+int get_solution(char **solution, maze_t maze);
+void add_cell_to_solution(int cell, char **solution);
 
 #endif // DEF_SOLVER

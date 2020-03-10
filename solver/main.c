@@ -15,7 +15,10 @@ int main(int argc, char **argv)
         return (84);
     if (get_maze(&maze, argv[1]) == 84)
         return (84);
-    solve_maze(maze);
+    if (solve_maze(maze) == 84) {
+        free_matrix(maze.array, maze.nb_lines - 1);
+        return (84);
+    }
     free_matrix(maze.array, maze.nb_lines - 1);
     return (0);
 }
