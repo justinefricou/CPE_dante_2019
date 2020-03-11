@@ -42,8 +42,6 @@ void free_matrix(int **matrix, int last_line);
 
 // maze_generation.c
 void generate_maze(maze_t *maze, int perfect);
-void link_maze_to_end(maze_t *maze);
-void make_maze_imperfect(maze_t *maze, int perfect);
 void go_to_previous_cell(coord_t *current_cell, maze_t *maze);
 int is_in_matrix_bounds(maze_t *maze, coord_t cell);
 
@@ -52,5 +50,9 @@ int go_to_next_cell(coord_t *current_cell, maze_t *maze);
 int cell_can_be_added(coord_t tested_cell, maze_t *maze);
 void add_cell_to_maze(coord_t new_cell, coord_t *current_cell, maze_t *maze);
 
+// finish_maze.c
+void link_maze_to_end(maze_t *maze);
+int can_be_linking_cell(coord_t cell, maze_t *maze);
+void make_maze_imperfect(maze_t *maze, int perfect);
 
 #endif // DEF_GENERATOR

@@ -27,18 +27,6 @@ void generate_maze(maze_t *maze, int perfect)
     }
 }
 
-void link_maze_to_end(maze_t *maze)
-{
-    for (int i = 0; i < maze->nb_lines; i++) {
-
-    }
-}
-
-void make_maze_imperfect(maze_t *maze, int perfect)
-{
-    // TODO
-}
-
 void go_to_previous_cell(coord_t *current_cell, maze_t *maze)
 {
     coord_t shifts[4] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};

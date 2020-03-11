@@ -13,7 +13,8 @@ SRC	=	main.c\
 		src/get_maze.c\
 		src/get_blank_matrix.c\
 		src/maze_generation.c\
-		src/go_to_next_cell.c
+		src/go_to_next_cell.c\
+		src/finish_maze.c
 
 OBJ	=	$(SRC:.c=.o)
 

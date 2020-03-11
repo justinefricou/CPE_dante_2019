@@ -29,6 +29,7 @@ int cell_can_be_added(coord_t tested_cell, maze_t *maze)
     coord_t shifts[4] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
     coord_t tested_neighbor = {0, 0};
     int empty_cells_nearby = 0;
+
     if (!is_in_matrix_bounds(maze, tested_cell))
         return (0);
     if (maze->matrix[tested_cell.x][tested_cell.y] >= 0)
