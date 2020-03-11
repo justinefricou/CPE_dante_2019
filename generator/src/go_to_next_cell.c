@@ -9,17 +9,21 @@
 
 int go_to_next_cell(coord_t *current_cell, maze_t *maze)
 {
-    // TODO : make it random
     coord_t shifts[4] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
     coord_t tested_cell = {0, 0};
+    int index_shifts = 0;
 
+    index_shifts = random() % 4;
     for (int i = 0; i < 4; i++) {
-        tested_cell.x = current_cell->x + shifts[i].x;
-        tested_cell.y = current_cell->y + shifts[i].y;
+        tested_cell.x = current_cell->x + shifts[index_shifts].x;
+        tested_cell.y = current_cell->y + shifts[index_shifts].y;
         if (cell_can_be_added(tested_cell, maze)) {
             add_cell_to_maze(tested_cell, current_cell, maze);
             return (1);
         }
+        index_shifts++;
+        if (index_shifts > 3)
+            index_shifts = 0;
     }
     return (0);
 }
