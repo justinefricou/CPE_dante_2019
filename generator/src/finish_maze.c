@@ -47,5 +47,24 @@ int can_be_linking_cell(coord_t cell, maze_t *maze)
 
 void make_maze_imperfect(maze_t *maze, int perfect)
 {
-    // TODO
+    coord_t tested_cell = {0, 0};
+    int go_on = 1;
+
+    if (perfect)
+        return;
+    for (int i = 0; i < maze->nb_lines && go_on; i++) {
+        for (int j = 0; j < maze->nb_cols && go_on; j++) {
+            tested_cell.x = j;
+            tested_cell.y = i;
+            empty_cell_if_linking(tested_cell, maze, &go_on);
+        }
+    }
+}
+
+void empty_cell_if_linking(coord_t cell, maze_t *maze, int *go_on)
+{
+    if (can_be_linking_cell(cell, maze)) {
+        maze->matrix[cell.x][cell.y] = 0;
+        *go_on = 0;
+    }
 }

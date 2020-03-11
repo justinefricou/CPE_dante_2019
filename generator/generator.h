@@ -54,5 +54,6 @@ void add_cell_to_maze(coord_t new_cell, coord_t *current_cell, maze_t *maze);
 void link_maze_to_end(maze_t *maze);
 int can_be_linking_cell(coord_t cell, maze_t *maze);
 void make_maze_imperfect(maze_t *maze, int perfect);
+void empty_cell_if_linking(coord_t cell, maze_t *maze, int *go_on);
 
 #endif // DEF_GENERATOR
