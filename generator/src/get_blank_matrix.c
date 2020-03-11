@@ -16,7 +16,7 @@ int get_blank_matrix(maze_t *maze, coord_t dimensions)
     if (maze->matrix == NULL)
         return (84);
     for (int i = 0; i < maze->nb_lines; i++) {
-        maze->matrix[i] = malloc(sizeof(int) * (maze->nb_cols));
+        maze->matrix[i] = malloc(sizeof(int) * maze->nb_cols);
         if (maze->matrix[i] == NULL) {
             free_matrix(maze->matrix, i - 1);
             return (84);
@@ -30,7 +30,7 @@ void fill_matrix_with_walls(maze_t *maze)
 {
     for (int i = 0; i < maze->nb_lines; i++) {
         for (int j = 0; j < maze->nb_cols; j++)
-            maze->matrix[i][j] = 0;
+            maze->matrix[i][j] = -1;
     }
 }
 
