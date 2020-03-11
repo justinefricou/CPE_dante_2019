@@ -11,7 +11,9 @@ SRC	=	main.c\
 		src/error_detection.c\
 		src/get_dimensions.c\
 		src/get_maze.c\
-		src/get_blank_matrix.c
+		src/get_blank_matrix.c\
+		src/maze_generation.c\
+		src/go_to_next_cell.c
 
 OBJ	=	$(SRC:.c=.o)
 

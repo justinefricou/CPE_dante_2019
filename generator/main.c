@@ -12,6 +12,7 @@ int main(int argc, char **argv)
     char *maze = NULL;
     coord_t dimensions = {0, 0};
 
+    srandom(time(NULL));
     if (detect_errors(argc, argv))
         return (84);
     if (get_dimensions(&(argv[1]), &dimensions) == 84)
