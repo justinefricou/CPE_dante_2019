@@ -15,20 +15,20 @@ void display_no_solution(void)
 int display_solution(maze_t maze)
 {
     char *solution = NULL;
+    int length = 0;
 
-    if (get_solution(&solution, maze) == 84)
+    if (get_solution(&solution, maze, &length) == 84)
         return (84);
-    printf("%s", solution);
+    write(1, solution, length);
     return (0);
 }
 
-int get_solution(char **solution, maze_t maze)
+int get_solution(char **solution, maze_t maze, int *length)
 {
-    int length = 0;
     char *copy_pointer = NULL;
 
-    length = maze.nb_lines * (maze.nb_cols + 1);
-    *solution = malloc(sizeof(char) * (length + 1));
+    *length = maze.nb_lines * (maze.nb_cols + 1);
+    *solution = malloc(sizeof(char) * (*length + 1));
     if (*solution == NULL)
         return (84);
     copy_pointer = *solution;
