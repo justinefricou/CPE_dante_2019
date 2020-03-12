@@ -7,14 +7,14 @@
 
 #include "generator.h"
 
-int get_maze(char **maze_as_string, coord_t dimensions, int perfect)
+int get_maze(char **maze_as_str, coord_t dimensions, int perfect, int *length)
 {
     maze_t maze = {0, 0, NULL};
 
     if (get_blank_matrix(&maze, dimensions) == 84)
         return (84);
     generate_maze(&maze, perfect);
-    if (get_maze_as_string(maze_as_string, maze) == 84) {
+    if (get_maze_as_string(maze_as_str, maze, length) == 84) {
         free_matrix(maze.matrix, maze.nb_lines - 1);
         return (84);
     }
@@ -22,13 +22,12 @@ int get_maze(char **maze_as_string, coord_t dimensions, int perfect)
     return (0);
 }
 
-int get_maze_as_string(char **string, maze_t maze)
+int get_maze_as_string(char **string, maze_t maze, int *length)
 {
-    int length = 0;
     char *copy_pointer = NULL;
 
-    length = maze.nb_lines * (maze.nb_cols + 1);
-    *string = malloc(sizeof(char) * (length + 1));
+    *length = maze.nb_lines * (maze.nb_cols + 1);
+    *string = malloc(sizeof(char) * (*length + 1));
     if (*string == NULL)
         return (84);
     copy_pointer = *string;
