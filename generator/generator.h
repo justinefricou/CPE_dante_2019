@@ -8,7 +8,6 @@
 #ifndef DEF_GENERATOR
 #define DEF_GENERATOR
 
-#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -34,8 +33,8 @@ int get_dimensions(char **args, coord_t *dimensions);
 int my_get_nbr(char *str);
 
 // get_maze.c
-int get_maze(char **maze_as_str, coord_t dimensions, int perfect, int *length);
-int get_maze_as_string(char **string, maze_t maze, int *length);
+int get_maze(char **maze_as_string, coord_t dimensions, int perfect);
+int get_maze_as_string(char **string, maze_t maze);
 
 // get_blank_matrix.c
 int get_blank_matrix(maze_t *maze, coord_t dimensions);
